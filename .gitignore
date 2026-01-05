@@ -1,0 +1,12 @@
+cat <<EOF > .gitignore
+__pycache__/
+*.pyc
+*.log
+wandb/
+checkpoints/
+outputs/
+data/*.parquet
+data/*.jsonl
+.DS_Store
+.env
+EOF

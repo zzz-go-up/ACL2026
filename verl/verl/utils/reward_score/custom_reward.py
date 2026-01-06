@@ -80,11 +80,6 @@ Begin your evaluation now.
 
 
 def calculate_3gram_recall_score(prediction, reference):
-    """
-    Calculate the character-level 3-gram Recall score between the prediction and reference text.
-    Process: Normalization -> Generate 3-gram tokens -> Compute recall score.
-    """
-    
    
     def normalize(text: str) -> str:
         if not text:
@@ -127,9 +122,6 @@ def calculate_3gram_recall_score(prediction, reference):
     return recall
 
 def detect_language_fasttext(text, lang_model):
-    """
-    Use FastText to detect the language, returns ISO code (e.g., 'en', 'zh', 'id').
-    """
     if not text or not lang_model:
         return "unknown"
     
@@ -146,9 +138,6 @@ def detect_language_fasttext(text, lang_model):
         return "unknown"
 
 def check_language_consistency(pred_text, ref_text, lang_model):
-    """
-    Language consistency check (FastText version).
-    """
     if len(pred_text) < 10 or len(ref_text) < 10:
         return True
         
@@ -175,10 +164,6 @@ def check_language_consistency(pred_text, ref_text, lang_model):
     return True
 
 def extract_reward(judge_output):
-    """
-    Extracts the score from the XML format.
-    Returns a float between 0.0 and 1.0.
-    """
     try:
         match = re.search(r"<score>\s*([\d\.]+)\s*</score>", judge_output)
         if match:
